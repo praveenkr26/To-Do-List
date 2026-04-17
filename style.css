@@ -1,0 +1,325 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+#container{
+   
+    width: 100vw;
+    min-height: 100vh;
+    background-color: white;
+    box-sizing: border-box;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .3em;
+    transition: all 0.3s ease;
+}
+
+#container h1{
+    font-size: 3em;
+    margin-top: .5em;
+    font-weight:100;
+}
+
+.search{
+    background-color: blanchedalmond;
+    border: 1px solid gold;
+    width:30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button:hover .search{
+        border: 2px solid gold;
+
+}
+
+#addTask {
+    background-color: blanchedalmond;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#addTask:hover {
+    background-color: #ffd700;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+#addTask:active {
+    transform: scale(0.98);
+}
+
+input[type] {
+    flex: 100%;
+    transition: all 0.3s ease;
+}
+
+#taskInput:focus {
+    outline: none;
+    background-color: #fffacd;
+}
+
+input[type] ,button{
+    /* background:none;
+    border: none;
+    outline: none; */
+        font-size: 1.5em;
+
+        padding: .5em ;
+        transition: all 0.3s ease;
+}
+
+.taskContainer{
+    width: 80%;
+   height: 70vh;
+   margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+    justify-content: center;
+    animation: fadeIn 0.5s ease;
+    transition: all 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.AddedTask,.completedTask{
+    background-color:  rgba(251, 245, 245, 0.349);
+    width: 100%;
+    outline: 2px solid rgba(226, 176, 176, 0.253);
+    box-shadow: 2px 3px 100px rgba(255, 191, 191, 0.448);
+        overflow-y: scroll;
+        z-index: 11;
+        transition: all 0.3s ease;
+}
+
+.AddedTask h2,
+.completedTask h2{
+    border-bottom: 1px solid rgba(19, 14, 14, 0.187);
+    padding-bottom: .3em;
+    margin-bottom: .5em;
+    font-weight: 400;
+    position: sticky;
+        padding: .5em 1em;
+    top:0px;
+    background-color:  rgb(255, 255, 255);
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+.AddedTask h2:hover,
+.completedTask h2:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.clear-btn {
+    float: right;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    margin-right: 1em;
+}
+
+
+.clear-btn:hover {
+    color: #ff6b6b;
+    transform: scale(1.2);
+} 
+ h2 span{
+    background-color: red;
+    padding: .1em 0;
+    border-radius: 50%;
+    font-size: 1em;
+    color: white;
+    display: inline-block;
+    width:50px;
+    text-align: center;
+    transition: all 0.4s ease;
+    animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.completedTask h2 span{
+    background-color: green;
+    color: white;
+}
+
+/*   <div class="AddedTask">
+                <h2>Added Task: <span class="counter">0</span> </h2>
+              
+                <!-- Change it dymatically in js -->
+                <div class="Task">
+                    <input type="checkbox">
+                    <span>Task</span>
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+ */
+
+.Task{
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 2em;
+    padding-left: 1.5em;
+    padding-top: .5em;
+    border-bottom: 1px solid rgba(8, 8, 15, 0.034);
+    animation: slideIn 0.4s ease;
+    transition: all 0.3s ease;
+}
+
+.Task:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    padding-left: 2em;
+}
+
+.Task input[type="checkbox"] {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.Task input[type="checkbox"]:hover {
+    transform: scale(1.2);
+}
+
+.Task i {
+    margin-right: 1em;
+    margin-left: 0.5em;
+    transition: all 0.3s ease;
+    color: #666;
+}
+
+.Task i:hover {
+    color: #ff6b6b;
+    transform: scale(1.2);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.Task span{
+    border-left: 1px solid rgba(231, 226, 226, 0.348);
+    padding-left: 1em;
+    margin-left: .5em;
+}
+
+/* ===== EDIT INPUT STYLING ===== */
+.edit-input {
+    flex: 1;
+    padding: 0.5em 1em;
+    border: 2px solid #ff6b6b;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: "Poppins", sans-serif;
+    background-color: #fff9f9;
+    animation: slideIn 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.edit-input:focus {
+    outline: none;
+    border-color: #ff4444;
+    box-shadow: 0 0 12px rgba(255, 107, 107, 0.5);
+    transform: scale(1.02);
+}
+
+/* ===== VIBRATE ANIMATION ===== */
+@keyframes vibrate {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+    20%, 40%, 60%, 80% { transform: translateX(8px); }
+}
+
+#taskInput.vibrate {
+    animation: vibrate 0.5s ease-in-out;
+    background-color: #ffe6e6;
+    border: 2px solid #ff6b6b !important;
+}
+
+/* ===== SMOOTH TRANSITIONS FOR H1 ===== */
+#container h1 {
+    animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== SMOOTH SEARCH BOX ===== */
+.search {
+    animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== DELETE ANIMATION ===== */
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+.Task.deleting {
+    animation: slideOut 0.3s ease;
+}
